@@ -414,7 +414,6 @@
                             <span class="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold" data-i18n="stat_clients">Clients</span>
                         </div>
                         <div class="bento-card p-4 md:p-6 flex flex-col justify-center items-center text-center">
-                            <!-- ИЗМЕНЕНО: 3M+ -->
                             <span class="text-3xl md:text-5xl font-bold text-white mb-1">3M<span class="text-primary">+</span></span>
                             <span class="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-widest font-bold" data-i18n="stat_views">Views Gen.</span>
                         </div>
@@ -507,6 +506,7 @@
                 <button class="filter-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full border border-white/10 bg-transparent text-gray-400 hover:text-white hover:bg-white/5 text-xs md:text-sm font-medium transition" data-filter="creatives" data-i18n="filt_creatives">Creatives</button>
             </div>
 
+            <!-- Сетка видосов -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" id="portfolio-grid">
                 
                 <div class="bento-card group h-[250px] sm:h-[350px] md:h-[400px] portfolio-item relative overflow-hidden" data-category="creatives">
@@ -855,7 +855,7 @@
                 <!-- 1. Опиум стайл (5 звезд) -->
                 <div class="bento-card p-6 md:p-8 relative">
                     <div class="text-primary text-xs md:text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 text-xs md:text-sm mb-6 italic" data-i18n="rev1_text">"Броу смог помочь с сочнейшим опиумным стилем, немного от приступа флексии глаза болели, но такому дрипсу позавидывал бы даже карти"</p>
+                    <p class="text-gray-300 text-xs md:text-sm mb-6 italic" data-i18n="rev1_text">"Bro helped with the juiciest Opium style edit. My eyes hurt a bit from the flex, but even Carti would be jealous of this drip."</p>
                     <div class="flex items-center gap-3 mt-auto">
                         <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-xs font-bold">DN</div>
                         <div>
@@ -868,7 +868,7 @@
                 <!-- 2. Вставки и детали (4 звезды) -->
                 <div class="bento-card p-6 md:p-8 relative">
                     <div class="text-primary text-xs md:text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
-                    <p class="text-gray-300 text-xs md:text-sm mb-6 italic" data-i18n="rev2_text">"Вставки очень хорошо выглядят, очень хорошее внимание к деталям, так что могу смело рекомендовать"</p>
+                    <p class="text-gray-300 text-xs md:text-sm mb-6 italic" data-i18n="rev2_text">"The overlays look really good, great attention to detail, so I can definitely recommend."</p>
                     <div class="flex items-center gap-3 mt-auto">
                         <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-xs font-bold">AR</div>
                         <div>
@@ -881,7 +881,7 @@
                 <!-- 3. Свежо и вовремя (5 звезд) -->
                 <div class="bento-card p-6 md:p-8 relative">
                     <div class="text-primary text-xs md:text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-gray-300 text-xs md:text-sm mb-6 italic" data-i18n="rev3_text">"Все вовремя, качество хорошее и визуал выглядит свежо"</p>
+                    <p class="text-gray-300 text-xs md:text-sm mb-6 italic" data-i18n="rev3_text">"Delivered on time, good quality of work, and the visuals look very fresh."</p>
                     <div class="flex items-center gap-3 mt-auto">
                         <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-xs font-bold">VS</div>
                         <div>
@@ -958,7 +958,7 @@
                 filt_all: "Все", filt_podcasts: "Подкасты", filt_gaming: "Ютуб Гейминг", filt_vlogs: "Влоги", filt_reels: "Рилсы / ТикТоки", filt_creatives: "Креативы",
                 sect_works: "Портфолио", title_works: "Избранные Работы", desc_works: "Примеры моушн-дизайна, брендинга и монтажа. Кликни, чтобы увеличить.",
                 port_game_t: "Игровой монтаж", port_game_d: "Максимальная динамика, саунд-дизайн и плотный экшен.",
-                port_opium_t: "Opium Style", port_opium_d: "Трендовый темный стиль с мощной синхронизацией под бит.",
+                port_opium_t: "Opium Style", port_opium_d: "Трендовый темний стиль с мощной синхронизацией под бит.",
                 port_vlog1_t: "Кинематографичный Влог", port_vlog1_d: "Плавный сторителлинг, цветокоррекция и атмосферные переходы.",
                 port_vlog2_t: "Динамичный Влог", port_vlog2_d: "Монтаж под высокое удержание зрителя. Никакой воды.",
                 port_podcast_t: "Монтаж Подкаста", port_podcast_d: "Чистые склейки, мультикамера и стильные поп-апы.",
@@ -1053,7 +1053,6 @@
                 const activeLink = document.querySelector('.nav-link.text-white');
                 if(activeLink) updateSlider(activeLink);
                 
-                // Перевод кнопки Show More
                 if (document.getElementById('load-more-btn')) {
                     const loadMoreText = document.querySelector('#load-more-btn span');
                     if (loadMoreText) {
@@ -1086,6 +1085,10 @@
         window.addEventListener('load', () => {
             const activeLink = document.querySelector('.nav-link.active-tab');
             if(activeLink) updateSlider(activeLink);
+            
+            // Заставляем сайт кликнуть на английский при старте, чтобы всё синхронизировалось 100%
+            const enBtn = document.querySelector('.lang-btn[data-lang="en"]');
+            if (enBtn) enBtn.click();
         });
 
         links.forEach(link => {
@@ -1137,12 +1140,10 @@
             if (loadMoreContainer && loadMoreText && loadMoreIcon) {
                 if (matchCount > INITIAL_ITEMS) {
                     loadMoreContainer.classList.remove('hidden');
-                    
                     let currentLang = 'en';
                     document.querySelectorAll('.lang-btn').forEach(btn => {
                         if(btn.classList.contains('text-white')) currentLang = btn.getAttribute('data-lang');
                     });
-
                     if (isExpanded) {
                         loadMoreText.innerHTML = translations[currentLang]['btn_show_less'] || 'Show Less';
                         loadMoreIcon.className = 'fa-solid fa-chevron-up group-hover:-translate-y-0.5 transition-transform';
@@ -1181,7 +1182,6 @@
             });
         }
 
-        // Вызываем сразу для скрытия лишних
         updateGrid();
 
         // ЛОГИКА ВИДЕО ПЛЕЕРА (МОДАЛКА)
@@ -1195,7 +1195,6 @@
                 const videoId = trigger.getAttribute('data-video-id');
                 const videoType = trigger.getAttribute('data-video-type');
 
-                // Подстраиваем размеры плеера под формат (шортс или обычное видео)
                 if (videoType === 'shorts') {
                     videoContainer.style.width = '100%';
                     videoContainer.style.maxWidth = '400px';
@@ -1206,7 +1205,6 @@
                     videoContainer.style.aspectRatio = '16/9';
                 }
 
-                // Загружаем видео с автоплеем
                 youtubeIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
                 
                 videoModal.classList.remove('hidden');
@@ -1224,7 +1222,7 @@
             videoContainer.classList.add('scale-95');
             setTimeout(() => {
                 videoModal.classList.add('hidden');
-                youtubeIframe.src = ''; // Останавливаем воспроизведение при закрытии
+                youtubeIframe.src = ''; 
             }, 300);
         }
 
@@ -1232,7 +1230,6 @@
         videoModal.addEventListener('click', (e) => {
             if(e.target === videoModal) closeVideoModal();
         });
-
 
         const retentionCard = document.getElementById('retention-card');
         const retentionModal = document.getElementById('retention-modal');
