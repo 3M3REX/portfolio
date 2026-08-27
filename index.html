@@ -1540,8 +1540,9 @@
                 const card = trigger.closest('.portfolio-item');
                 if (info) {
                     if (card) {
-                        const tag = card.querySelector('span.bg-primary\/20, span[class*="rounded-full"]');
                         const h = card.querySelector('h3'), d = card.querySelector('p');
+                        // бейдж категорії — це span одразу перед заголовком
+                        const tag = h ? h.previousElementSibling : null;
                         document.getElementById('video-info-tag').textContent = tag ? tag.textContent.trim() : '';
                         document.getElementById('video-info-title').textContent = h ? h.textContent.trim() : '';
                         document.getElementById('video-info-desc').textContent = d ? d.textContent.trim() : '';
