@@ -1003,6 +1003,38 @@
 
     <!-- Interactive Scripts -->
     <script>
+        // === СТРАХОВКА ПЛЕЕРА ===
+        // якщо модалка відкрита, але лишилась прозорою — вона з'їдає всі кліки.
+        // показуємо її примусово, а якщо не вийшло — ховаємо.
+        (function(){
+            const m = document.getElementById('video-modal');
+            if (!m) return;
+            setInterval(() => {
+                if (m.classList.contains('hidden')) return;
+                if (getComputedStyle(m).opacity === '0') {
+                    m.classList.remove('opacity-0');
+                    void m.offsetWidth;
+                    if (getComputedStyle(m).opacity === '0') m.classList.add('hidden');
+                }
+            }, 700);
+        })();
+
+        // === СТРАХОВКА: показать всё, якщо анімації не спрацювали ===
+        (function(){
+            function ensureVisible(){
+                document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+                document.querySelectorAll('.portfolio-item').forEach(el => {
+                    if (getComputedStyle(el).display !== 'none' && getComputedStyle(el).opacity === '0') {
+                        el.style.opacity = '1';
+                        el.style.transform = 'none';
+                    }
+                });
+            }
+            document.addEventListener('visibilitychange', () => { if (!document.hidden) ensureVisible(); });
+            window.addEventListener('pageshow', ensureVisible);
+            setTimeout(ensureVisible, 2500);
+        })();
+
         // === ОЖИВЛЕНИЕ КАРТОЧЕК ПРИ НАВЕДЕНИИ ===
         (function(){
             const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -1425,11 +1457,11 @@
                         const order = visibleCount;
                         item.style.display = 'block';
                         item.style.transitionDelay = (Math.min(order, 7) * 40) + 'ms';
-                        // два кадра — надёжный способ запустить переход после смены display
-                        requestAnimationFrame(() => requestAnimationFrame(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'none';
-                        }));
+                        // форсируем пересчёт стилей — работает и в фоновій вкладці,
+                        // на відміну від requestAnimationFrame
+                        void item.offsetWidth;
+                        item.style.opacity = '1';
+                        item.style.transform = 'none';
                         visibleCount++;
                     } else {
                         item.style.transitionDelay = '0ms';
@@ -1514,7 +1546,8 @@
                         document.getElementById('video-info-title').textContent = h ? h.textContent.trim() : '';
                         document.getElementById('video-info-desc').textContent = d ? d.textContent.trim() : '';
                         info.style.display = '';
-                        setTimeout(() => info.classList.replace('opacity-0','opacity-100'), 60);
+                        void info.offsetWidth;
+                        info.classList.replace('opacity-0','opacity-100');
                     } else {
                         info.style.display = 'none';
                     }
@@ -1538,8 +1571,15 @@
                     youtubeIframe.src = '';
                     localVideo.classList.remove('hidden');
                     localVideo.src = videoId;
-                    localVideo.currentTime = 0;
-                    localVideo.play().catch(() => {});
+                    localVideo.muted = false;
+                    localVideo.volume = 1;
+                    localVideo.load();
+                    localVideo.play().catch(() => {
+                        // браузер не дав відтворити зі звуком — пробуємо без нього,
+                        // глядач увімкне звук кнопкою на плеєрі
+                        localVideo.muted = true;
+                        localVideo.play().catch(() => {});
+                    });
                 } else {
                     localVideo.classList.add('hidden');
                     localVideo.pause();
@@ -1549,11 +1589,12 @@
                 }
                 
                 videoModal.classList.remove('hidden');
-                setTimeout(() => {
-                    videoModal.classList.remove('opacity-0');
-                    videoContainer.classList.remove('scale-95');
-                    videoContainer.classList.add('scale-100');
-                }, 10);
+                // принудительный пересчёт — надёжніше за setTimeout,
+                // який може не спрацювати у фоновій вкладці
+                void videoModal.offsetWidth;
+                videoModal.classList.remove('opacity-0');
+                videoContainer.classList.remove('scale-95');
+                videoContainer.classList.add('scale-100');
             });
         });
 
