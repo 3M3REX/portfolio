@@ -7,6 +7,8 @@
     <meta name="description" content="Motion & graphic designer. 4+ years, 100+ projects, 3M+ views generated. YouTube editing, short-form, ad creatives. After Effects, Premiere Pro, Blender 3D.">
     <meta name="author" content="EMEREX">
     <meta name="theme-color" content="#030303">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="canonical" href="https://3m3rex.github.io/portfolio/">
 
     <!-- Open Graph: превью при отправке ссылки -->
@@ -418,6 +420,11 @@
                         <div class="w-44 mx-auto lg:mx-0 lg:w-[210px] xl:w-[240px] shrink-0">
                             <div class="relative rounded-2xl overflow-hidden border border-white/15 bg-black shadow-[0_25px_60px_rgba(0,0,0,0.9)]">
                                 <video id="reel" src="reel.mp4" poster="reel-poster.jpg" muted loop autoplay playsinline preload="metadata" class="w-full h-auto block"></video>
+                                <div class="video-trigger absolute inset-0 flex items-center justify-center cursor-pointer group/reel" data-video-id="reel.mp4" data-video-type="local">
+                                    <div class="w-14 h-14 rounded-full bg-black/50 backdrop-blur border border-white/25 flex items-center justify-center text-white opacity-0 group-hover/reel:opacity-100 transition-opacity duration-300">
+                                        <i class="fa-solid fa-expand"></i>
+                                    </div>
+                                </div>
                                 <button id="reel-sound" type="button" aria-label="Toggle sound" class="absolute bottom-2.5 right-2.5 w-9 h-9 rounded-full bg-black/70 backdrop-blur border border-white/20 text-white/70 hover:text-white hover:border-primary flex items-center justify-center transition">
                                     <i class="fa-solid fa-volume-xmark text-xs"></i>
                                 </button>
@@ -525,6 +532,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" id="portfolio-grid">
                 <div class="bento-card group h-[250px] sm:h-[350px] md:h-[400px] portfolio-item relative overflow-hidden" data-category="product">
                     <img src="w-aisance.jpg" alt="Aisance" loading="lazy" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                    <video class="hover-preview absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none" muted loop playsinline preload="none" src="w-aisance-hover.mp4"></video>
                     <div class="video-trigger absolute inset-0 flex items-center justify-center z-20 cursor-pointer" data-video-id="w-aisance.mp4" data-video-type="local">
                         <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110 shadow-[0_0_30px_rgba(255,26,26,0.6)]">
                             <i class="fa-solid fa-play text-white text-2xl md:text-3xl ml-1"></i>
@@ -539,6 +547,7 @@
 
                 <div class="bento-card group h-[250px] sm:h-[350px] md:h-[400px] portfolio-item relative overflow-hidden" data-category="product">
                     <img src="w-luxbook.jpg" alt="LuxBook" loading="lazy" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                    <video class="hover-preview absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none" muted loop playsinline preload="none" src="w-luxbook-hover.mp4"></video>
                     <div class="video-trigger absolute inset-0 flex items-center justify-center z-20 cursor-pointer" data-video-id="w-luxbook.mp4" data-video-type="local">
                         <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110 shadow-[0_0_30px_rgba(255,26,26,0.6)]">
                             <i class="fa-solid fa-play text-white text-2xl md:text-3xl ml-1"></i>
@@ -553,6 +562,7 @@
 
                 <div class="bento-card group h-[250px] sm:h-[350px] md:h-[400px] portfolio-item relative overflow-hidden" data-category="product">
                     <img src="w-logo.jpg" alt="EURO·AFF" loading="lazy" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                    <video class="hover-preview absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none" muted loop playsinline preload="none" src="w-logo-hover.mp4"></video>
                     <div class="video-trigger absolute inset-0 flex items-center justify-center z-20 cursor-pointer" data-video-id="w-logo.mp4" data-video-type="local">
                         <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110 shadow-[0_0_30px_rgba(255,26,26,0.6)]">
                             <i class="fa-solid fa-play text-white text-2xl md:text-3xl ml-1"></i>
@@ -567,6 +577,7 @@
 
                 <div class="bento-card group h-[250px] sm:h-[350px] md:h-[400px] portfolio-item relative overflow-hidden" data-category="product">
                     <img src="w-aisance3d.jpg" alt="Aisance 3D" loading="lazy" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                    <video class="hover-preview absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none" muted loop playsinline preload="none" src="w-aisance3d-hover.mp4"></video>
                     <div class="video-trigger absolute inset-0 flex items-center justify-center z-20 cursor-pointer" data-video-id="w-aisance3d.mp4" data-video-type="local">
                         <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110 shadow-[0_0_30px_rgba(255,26,26,0.6)]">
                             <i class="fa-solid fa-play text-white text-2xl md:text-3xl ml-1"></i>
@@ -954,6 +965,27 @@
 
     <!-- Interactive Scripts -->
     <script>
+        // === ОЖИВЛЕНИЕ КАРТОЧЕК ПРИ НАВЕДЕНИИ ===
+        (function(){
+            const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+            if (!canHover) return;
+            document.querySelectorAll('.hover-preview').forEach(v => {
+                const card = v.closest('.portfolio-item');
+                if (!card) return;
+                let armed = false;
+                card.addEventListener('mouseenter', () => {
+                    if (!armed) { v.load(); armed = true; }
+                    v.currentTime = 0;
+                    const pr = v.play();
+                    if (pr) pr.then(() => v.classList.replace('opacity-0','opacity-100')).catch(()=>{});
+                });
+                card.addEventListener('mouseleave', () => {
+                    v.classList.replace('opacity-100','opacity-0');
+                    setTimeout(() => { if (v.classList.contains('opacity-0')) v.pause(); }, 500);
+                });
+            });
+        })();
+
         // === ПОЯВЛЕНИЕ БЛОКОВ ПРИ СКРОЛЛЕ ===
         (function(){
             const targets = document.querySelectorAll(
@@ -1206,6 +1238,7 @@
                 btn.classList.add('bg-white/10', 'text-white');
 
                 const lang = btn.getAttribute('data-lang');
+                document.documentElement.lang = lang;
                 document.querySelectorAll('[data-i18n]').forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if(translations[lang][key]) {
