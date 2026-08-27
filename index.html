@@ -147,7 +147,7 @@
         }
 
         .portfolio-item {
-            transition: opacity 0.3s ease, transform 0.3s ease;
+            transition: opacity .38s cubic-bezier(.22,.61,.36,1), transform .38s cubic-bezier(.22,.61,.36,1);
         }
 
         /* Animation for the graph line in modal */
@@ -993,9 +993,27 @@
                 '#emertool h2, #about .bento-card, #about h2, #services .bento-card, #services h2, ' +
                 '#portfolio h2'
             );
-            targets.forEach((el,i) => { el.classList.add('reveal'); el.style.transitionDelay = (Math.min(i,6)*55)+'ms'; });
+            targets.forEach((el,i) => {
+                el.classList.add('reveal');
+                // карточкам работ — короче задержка, ими дальше управляет фильтр
+                const step = el.classList.contains('portfolio-item') ? 35 : 55;
+                el.style.transitionDelay = (Math.min(i,6)*step)+'ms';
+            });
             const io = new IntersectionObserver((entries) => {
-                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+                entries.forEach(e => {
+                    if (!e.isIntersecting) return;
+                    const el = e.target;
+                    el.classList.add('in');
+                    io.unobserve(el);
+                    // после проявления снимаем свою анимацию с карточек,
+                    // чтобы не спорить с фильтром за opacity и transform
+                    if (el.classList.contains('portfolio-item')) {
+                        setTimeout(() => {
+                            el.style.transitionDelay = '';
+                            el.classList.remove('reveal','in');
+                        }, 900);
+                    }
+                });
             }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
             targets.forEach(el => io.observe(el));
         })();
@@ -1345,6 +1363,14 @@
             let matchCount = 0;
             let visibleCount = 0;
 
+            // снять остатки анимации появления — дальше управляет только фильтр
+            portfolioItems.forEach(it => {
+                if (it.classList.contains('reveal')) {
+                    it.classList.remove('reveal','in');
+                    it.style.transitionDelay = '';
+                }
+            });
+
             portfolioItems.forEach(item => {
                 const itemCategory = item.getAttribute('data-category');
                 const matches = currentFilter === 'all' || currentFilter === itemCategory;
@@ -1352,21 +1378,26 @@
                 if (matches) {
                     matchCount++;
                     if (isExpanded || visibleCount < INITIAL_ITEMS) {
+                        const order = visibleCount;
                         item.style.display = 'block';
-                        setTimeout(() => {
+                        item.style.transitionDelay = (Math.min(order, 7) * 40) + 'ms';
+                        // два кадра — надёжный способ запустить переход после смены display
+                        requestAnimationFrame(() => requestAnimationFrame(() => {
                             item.style.opacity = '1';
-                            item.style.transform = 'scale(1)';
-                        }, 50);
+                            item.style.transform = 'none';
+                        }));
                         visibleCount++;
                     } else {
+                        item.style.transitionDelay = '0ms';
                         item.style.opacity = '0';
-                        item.style.transform = 'scale(0.95)';
-                        setTimeout(() => { item.style.display = 'none'; }, 300);
+                        item.style.transform = 'scale(.97)';
+                        setTimeout(() => { item.style.display = 'none'; }, 260);
                     }
                 } else {
+                    item.style.transitionDelay = '0ms';
                     item.style.opacity = '0';
-                    item.style.transform = 'scale(0.95)';
-                    setTimeout(() => { item.style.display = 'none'; }, 300);
+                    item.style.transform = 'scale(.97)';
+                    setTimeout(() => { item.style.display = 'none'; }, 260);
                 }
             });
 
