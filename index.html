@@ -244,10 +244,17 @@
         <button id="video-close" class="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center text-white transition z-50">
             <i class="fa-solid fa-xmark text-xl"></i>
         </button>
-        <div id="video-container" class="w-full relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,26,26,0.3)] transition-all duration-300 transform scale-95 flex items-center justify-center bg-black">
+        <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 w-full max-w-6xl max-h-full">
+            <div id="video-container" class="w-full relative rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,26,26,0.3)] transition-all duration-300 transform scale-95 flex items-center justify-center bg-black">
             <!-- iframe (YouTube) и video (свои файлы) -->
             <video id="local-video" class="absolute top-0 left-0 w-full h-full hidden" controls playsinline preload="metadata"></video>
             <iframe id="youtube-iframe" class="absolute top-0 left-0 w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+            <div id="video-info" class="w-full lg:w-[300px] shrink-0 text-center lg:text-left opacity-0 transition-opacity duration-500 delay-150">
+                <p id="video-info-tag" class="text-[10px] md:text-xs uppercase tracking-widest text-primary font-bold mb-2"></p>
+                <h3 id="video-info-title" class="text-xl md:text-2xl font-bold text-white mb-3 leading-snug"></h3>
+                <p id="video-info-desc" class="text-gray-400 text-sm leading-relaxed"></p>
+            </div>
         </div>
     </div>
 
@@ -525,11 +532,42 @@
                 <button class="filter-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full border border-white/10 bg-transparent text-gray-400 hover:text-white hover:bg-white/5 text-xs md:text-sm font-medium transition" data-filter="gaming" data-i18n="filt_gaming">Gaming & Personal</button>
                 <button class="filter-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full border border-white/10 bg-transparent text-gray-400 hover:text-white hover:bg-white/5 text-xs md:text-sm font-medium transition" data-filter="vlogs" data-i18n="filt_vlogs">Vlogs</button>
                 <button class="filter-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full border border-white/10 bg-transparent text-gray-400 hover:text-white hover:bg-white/5 text-xs md:text-sm font-medium transition" data-filter="medical" data-i18n="filt_reels">Medical</button>
+                <button class="filter-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full border border-white/10 bg-transparent text-gray-400 hover:text-white hover:bg-white/5 text-xs md:text-sm font-medium transition" data-filter="ai"><span data-i18n="filt_ai">AI + UGC</span></button>
                 <button class="filter-btn px-4 md:px-5 py-1.5 md:py-2 rounded-full border border-white/10 bg-transparent text-gray-400 hover:text-white hover:bg-white/5 text-xs md:text-sm font-medium transition" data-filter="product" data-i18n="filt_creatives">Product & Ads</button>
             </div>
 
             <!-- Сетка видосов -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" id="portfolio-grid">
+                <div class="bento-card group h-[250px] sm:h-[350px] md:h-[400px] portfolio-item relative overflow-hidden" data-category="ai">
+                    <img src="w-petclub.jpg" alt="AI + UGC" loading="lazy" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                    <video class="hover-preview absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none" muted loop playsinline preload="none" src="w-petclub-hover.mp4"></video>
+                    <div class="video-trigger absolute inset-0 flex items-center justify-center z-20 cursor-pointer" data-video-id="w-petclub.mp4" data-video-type="local">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110 shadow-[0_0_30px_rgba(255,26,26,0.6)]">
+                            <i class="fa-solid fa-play text-white text-2xl md:text-3xl ml-1"></i>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-5 md:p-8 flex flex-col justify-end pointer-events-none z-10">
+                        <span class="px-3 py-1 bg-primary/20 backdrop-blur-md rounded-full text-[10px] md:text-xs font-semibold text-primary border border-primary/20 w-max mb-2 md:mb-3">AI + UGC</span>
+                        <h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2" data-i18n="port_new_pet_t">Pet community — London</h3>
+                        <p class="text-gray-400 text-xs md:text-sm line-clamp-2" data-i18n="port_new_pet_d">UGC-style ad on an AI avatar. Character consistency across shots, UI composited into frame, captions.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card group h-[250px] sm:h-[350px] md:h-[400px] portfolio-item relative overflow-hidden" data-category="ai">
+                    <img src="w-luxugc.jpg" alt="AI + UGC" loading="lazy" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
+                    <video class="hover-preview absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none" muted loop playsinline preload="none" src="w-luxugc-hover.mp4"></video>
+                    <div class="video-trigger absolute inset-0 flex items-center justify-center z-20 cursor-pointer" data-video-id="w-luxugc.mp4" data-video-type="local">
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-primary/90 rounded-full flex items-center justify-center transform transition-transform group-hover:scale-110 shadow-[0_0_30px_rgba(255,26,26,0.6)]">
+                            <i class="fa-solid fa-play text-white text-2xl md:text-3xl ml-1"></i>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-transparent p-5 md:p-8 flex flex-col justify-end pointer-events-none z-10">
+                        <span class="px-3 py-1 bg-primary/20 backdrop-blur-md rounded-full text-[10px] md:text-xs font-semibold text-primary border border-primary/20 w-max mb-2 md:mb-3">AI + UGC</span>
+                        <h3 class="text-lg md:text-2xl font-bold mb-1 md:mb-2" data-i18n="port_new_luxugc_t">LuxBook — user journey</h3>
+                        <p class="text-gray-400 text-xs md:text-sm line-clamp-2" data-i18n="port_new_luxugc_d">UGC-style ad: search, booking, class, rating. AI avatar plus live app UI.</p>
+                    </div>
+                </div>
+
                 <div class="bento-card group h-[250px] sm:h-[350px] md:h-[400px] portfolio-item relative overflow-hidden" data-category="product">
                     <img src="w-aisance.jpg" alt="Aisance" loading="lazy" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-500">
                     <video class="hover-preview absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 pointer-events-none" muted loop playsinline preload="none" src="w-aisance-hover.mp4"></video>
@@ -1083,6 +1121,8 @@
                 profile_name: "EMEREX", profile_role: "Motion & Graphic Designer", profile_loc: "Crafting high-end digital art and edits.", 
                 stat_avg_watch: "avg. watch", stat_ctr: "CTR",
                 stat_exp: "Years Exp", stat_proj: "Projects", stat_clients: "Clients", stat_views: "Views Gen.", skill_motion: "Motion Design", skill_graphic: "Graphic Art", skill_yt: "YouTube Turnkey",
+                filt_ai: "AI + UGC", port_new_pet_t: "Pet community — London", port_new_pet_d: "UGC-style ad on an AI avatar. Character consistency across shots, UI composited into frame, captions.",
+                port_new_luxugc_t: "LuxBook — user journey", port_new_luxugc_d: "UGC-style ad: search, booking, class, rating. AI avatar plus live app UI.",
                 filt_all: "All", filt_podcasts: "Podcasts", filt_gaming: "Gaming & Personal", filt_vlogs: "Vlogs", filt_reels: "Medical", filt_creatives: "Product & Ads",
                 sect_works: "Works", title_works: "Selected Projects", desc_works: "A curated showcase of recent motion graphics, branding, and digital design. Click to enlarge.",
                 port_game_t: "Insane Gaming Montage", port_game_d: "High-energy edit with crazy pacing and sound design.",
@@ -1139,6 +1179,8 @@
                 profile_name: "EMEREX", profile_role: "Моушн и Графический Дизайнер", profile_loc: "Делаю премиальный диджитал-арт и монтаж.", 
                 stat_avg_watch: "ср. удержание", stat_ctr: "CTR",
                 stat_exp: "Года Опыта", stat_proj: "Проектов", stat_clients: "Клиентов", stat_views: "Просмотров", skill_motion: "Моушн Дизайн", skill_graphic: "Графика", skill_yt: "YouTube Под Ключ",
+                filt_ai: "AI + UGC", port_new_pet_t: "Пет-сообщество — Лондон", port_new_pet_d: "UGC-реклама на AI-аватаре. Консистентность персонажа между планами, интерфейс вкомпожен в кадр, субтитры.",
+                port_new_luxugc_t: "LuxBook — путь пользователя", port_new_luxugc_d: "UGC-реклама: поиск, бронирование, занятие, оценка. AI-аватар плюс живой интерфейс приложения.",
                 filt_all: "Все", filt_podcasts: "Подкасты", filt_gaming: "Ютуб Гейминг", filt_vlogs: "Влоги", filt_reels: "Медицина", filt_creatives: "Продукт и реклама",
                 sect_works: "Портфолио", title_works: "Избранные Работы", desc_works: "Примеры моушн-дизайна, брендинга и монтажа. Кликни, чтобы увеличить.",
                 port_game_t: "Игровой монтаж", port_game_d: "Максимальная динамика, саунд-дизайн и плотный экшен.",
@@ -1195,6 +1237,8 @@
                 profile_name: "EMEREX", profile_role: "Motion & Graphic Designer", profile_loc: "Створюю преміальний діджитал-арт та монтаж.", 
                 stat_avg_watch: "сер. утримання", stat_ctr: "CTR",
                 stat_exp: "Роки Досвіду", stat_proj: "Проектів", stat_clients: "Клієнтів", stat_views: "Переглядів", skill_motion: "Motion Design", skill_graphic: "Graphic Art", skill_yt: "YouTube Под Ключ",
+                filt_ai: "AI + UGC", port_new_pet_t: "Пет-спільнота — Лондон", port_new_pet_d: "UGC-реклама на AI-аватарі. Консистентність персонажа між планами, інтерфейс вкомпонований у кадр, субтитри.",
+                port_new_luxugc_t: "LuxBook — шлях користувача", port_new_luxugc_d: "UGC-реклама: пошук, бронювання, заняття, оцінка. AI-аватар плюс живий інтерфейс застосунку.",
                 filt_all: "Всі", filt_podcasts: "Подкасти", filt_gaming: "Ютуб Геймінг", filt_vlogs: "Влоги", filt_reels: "Медицина", filt_creatives: "Продукт та реклама",
                 sect_works: "Портфоліо", title_works: "Обрані Роботи", desc_works: "Приклади моушн-дизайну, брендингу та монтажу. Клікни, щоб збільшити.",
                 port_game_t: "Ігровий монтаж", port_game_d: "Максимальна динаміка, саунд-дизайн та щільний екшен.",
@@ -1459,13 +1503,32 @@
                 const videoId = trigger.getAttribute('data-video-id');
                 const videoType = trigger.getAttribute('data-video-type');
 
+                // подпись рядом с плеером — берём из карточки
+                const info = document.getElementById('video-info');
+                const card = trigger.closest('.portfolio-item');
+                if (info) {
+                    if (card) {
+                        const tag = card.querySelector('span.bg-primary\/20, span[class*="rounded-full"]');
+                        const h = card.querySelector('h3'), d = card.querySelector('p');
+                        document.getElementById('video-info-tag').textContent = tag ? tag.textContent.trim() : '';
+                        document.getElementById('video-info-title').textContent = h ? h.textContent.trim() : '';
+                        document.getElementById('video-info-desc').textContent = d ? d.textContent.trim() : '';
+                        info.style.display = '';
+                        setTimeout(() => info.classList.replace('opacity-0','opacity-100'), 60);
+                    } else {
+                        info.style.display = 'none';
+                    }
+                }
+
                 if (videoType === 'shorts' || videoType === 'local') {
-                    videoContainer.style.width = '100%';
-                    videoContainer.style.maxWidth = '400px';
+                    videoContainer.style.width = 'auto';
+                    videoContainer.style.height = 'min(84vh, 780px)';
+                    videoContainer.style.maxWidth = '100%';
                     videoContainer.style.aspectRatio = '9/16';
                 } else {
                     videoContainer.style.width = '100%';
-                    videoContainer.style.maxWidth = '1000px';
+                    videoContainer.style.height = 'auto';
+                    videoContainer.style.maxWidth = 'min(1000px, 92vw)';
                     videoContainer.style.aspectRatio = '16/9';
                 }
 
@@ -1495,6 +1558,8 @@
         });
 
         function closeVideoModal() {
+            const info = document.getElementById('video-info');
+            if (info) info.classList.replace('opacity-100','opacity-0');
             videoModal.classList.add('opacity-0');
             videoContainer.classList.remove('scale-100');
             videoContainer.classList.add('scale-95');
